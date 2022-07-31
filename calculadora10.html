@@ -90,22 +90,49 @@
 				// Si es la 1ªoperacio que realitzem executa a partir del 2º else, sino continua amb el codi següent: if
 				if(operacio1a==false){
 				
-				// Necessita un condicional per evaluar el valor de la variable adicio
-				if (adicio){
-					acumulado=acumulado+parseInt(cifra);	
-					document.getElementById("display").value=acumulado;
-				}else{
-				acumulado=acumulado-parseInt(cifra);
-				document.getElementById("display").value=acumulado;
-				}
-				}else{
-					acumulado=parseInt(cifra);
-					// En acabar aquest condicional resetejem la variable operacio1a
-					operacio1a=false;
+					// Necessita un condicional per evaluar el valor de la variable adicio
+					if (adicio){
+						acumulado=acumulado+parseInt(cifra);	
+						document.getElementById("display").value=acumulado;
+					}else{
+						acumulado=acumulado-parseInt(cifra);
+						document.getElementById("display").value=acumulado;
+					}
+					}else{
+						acumulado=parseInt(cifra);
+						// En acabar aquest condicional resetejem la variable operacio1a
+						operacio1a=false;
 				}
 				cifra="";
 				adicio=false;
 				menos=true;
+				operacio1a=false;
+			}
+
+			// Buscar l'ERROR de la MULTIPLICACIÓ a partir d'aqui
+			function multiplicar(){
+				if(operacio1a==false){
+					if (menos){
+						acumulado=acumulado-parseInt(cifra);
+						document.getElementById("display").value=acumulado;
+						if (adicio){
+							acumulado=acumulado+parseInt(cifra);	
+							document.getElementById("display").value=acumulado;
+						}else{
+							acumulado=acumulado*parseInt(cifra);
+							document.getElementById("display").value=acumulado;	
+						}
+					}else{
+						acumulado=parseInt(cifra);
+						// En acabar aquest condicional resetejem la variable operacio1a
+						operacio1a=false;
+					}
+				}
+				cifra="";
+				adicio=false;
+				menos=false;
+				perX=true;
+				operacio1a=false;
 			}
 
 			function resultado(){
