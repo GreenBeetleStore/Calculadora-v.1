@@ -60,17 +60,26 @@ table{
 	
 	
 	function sumar(){
+		// Necessita un condicional per avaluar el valor de la variable menos
+		if (menos){
+			acumulado=acumulado-parseInt(cifra);	
+			document.getElementById("display").value=acumulado;
+		}else{
 		// El valor de cifra es guarda a acumulado convertit de string a número amb "parseInt".
 		acumulado=acumulado+parseInt(cifra);
 		// Apareix la nova xifra de l'operació al display.
 		document.getElementById("display").value=acumulado;
+		}
 		// Cifra es reseteja de nou a 0.
 		cifra="";
-		// Crida de la variable adició per fer funcionar la tecla "="
+		// Avalua el valor de la variable adició per fer funcionar la tecla "="
 		adicio=true;
+		//Avalua el valor de la variable menos 
+		menos=false;
 	}
 
 	function restar(){
+		// Necessita un condicional per evaluar el valor de la variable adicio
 		if (adicio){
 			acumulado=acumulado+parseInt(cifra);	
 			document.getElementById("display").value=acumulado;
