@@ -44,6 +44,9 @@ table{
 	// Acumula el resultat al operar
 	var acumulado=0;
 
+	// Amb aquesta variable la calculadora detecta la primera operació realitzada
+	var operacio1a=true;
+
 	// Creem esta variable per cridar-la en un condicional if per una operació de suma. Al pitjar "=" la funció resultado ens ha de donar el total al display.
 	var adicio=false;
 
@@ -76,9 +79,15 @@ table{
 		adicio=true;
 		//Avalua el valor de la variable menos 
 		menos=false;
+		// En acabar tota aquesta operació resetejem la variable operacio1a
+		operacio1a=false;
+
 	}
 
 	function restar(){
+		// Si es la 1ªoperacio que realitzem executa a partir del 2º else, sino continua amb el codi següent: if
+		if(operacio1a==false){
+		
 		// Necessita un condicional per evaluar el valor de la variable adicio
 		if (adicio){
 			acumulado=acumulado+parseInt(cifra);	
@@ -87,10 +96,14 @@ table{
 		acumulado=acumulado-parseInt(cifra);
 		document.getElementById("display").value=acumulado;
 		}
+		}else{
+			acumulado=parseInt(cifra);
+			// En acabar aquest condicional resetejem la variable operacio1a
+			operacio1a=false;
+		}
 		cifra="";
 		adicio=false;
 		menos=true;
-
 	}
 
 	function resultado(){
